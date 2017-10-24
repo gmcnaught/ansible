@@ -281,6 +281,8 @@ def get_encrypted_password(password, hashtype='sha512', salt=None):
             r = SystemRandom()
             if hashtype in ['md5']:
                 saltsize = 8
+            elif hashtype in ['blowfish']:
+                saltsize = 22
             else:
                 saltsize = 16
             saltcharset = string.ascii_letters + string.digits + '/.'
